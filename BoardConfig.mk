@@ -6,6 +6,12 @@
 
 DEVICE_PATH := device/xiaomi/spes
 
+# For building with minimal manifest
+ALLOW_MISSING_DEPENDENCIES := true
+
+# APEX
+DEXPREOPT_GENERATE_APEX_IMAGE := true
+
 # Architecture
 TARGET_ARCH := arm64
 TARGET_ARCH_VARIANT := armv8-a
@@ -21,7 +27,6 @@ TARGET_2ND_CPU_VARIANT := cortex-a73
 
 # A/B
 AB_OTA_UPDATER := true
-
 AB_OTA_PARTITIONS += \
     boot \
     dtbo \
