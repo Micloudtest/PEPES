@@ -93,8 +93,12 @@ PRODUCT_SOONG_NAMESPACES += \
 	$(DEVICE_PATH) \
 	vendor/qcom/opensource/commonsys-intf/display
 
+# Display
+TW_BRIGHTNESS_PATH := "/sys/class/backlight/panel0-backlight/brightness"
+TW_MAX_BRIGHTNESS := 2047
+TW_DEFAULT_BRIGHTNESS := 500
+
 TW_CUSTOM_CPU_TEMP_PATH := "/sys/class/thermal/thermal_zone7/temp"
-TW_BRIGHTNESS_PATH      := "/sys/class/backlight/panel0-backlight/brightness"
 TARGET_RECOVERY_DEVICE_MODULES += libion vendor.display.config@1.0 vendor.display.config@2.0 libdisplayconfig.qti vendor.qti.hardware.vibrator.service vendor.qti.hardware.vibrator.impl libqtivibratoreffect
 
 TW_BATTERY_SYSFS_WAIT_SECONDS := 6
