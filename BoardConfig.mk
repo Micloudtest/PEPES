@@ -195,6 +195,10 @@ TW_NO_SCREEN_BLANK := true
 TW_EXCLUDE_APEX := true
 TW_EXCLUDE_DEFAULT_USB_INIT := true
 
+# Removes the loop block errors after flashing ZIPs (Workaround) 
+TW_IGNORE_LOGICAL_MOUNT_ERRORS=1
+TW_LOOP_DEVICE_ERRORS_TO_LOG=1
+
 # Log
 TWRP_INCLUDE_LOGCAT := true
 TARGET_USES_LOGD := true
