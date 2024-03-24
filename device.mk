@@ -48,10 +48,6 @@ PRODUCT_PACKAGES += \
     android.hardware.boot@1.2-impl-qti.recovery \
     android.hardware.boot@1.2-service
 
-# Dynamic partitions
-PRODUCT_USE_DYNAMIC_PARTITIONS := true
-PRODUCT_BUILD_SUPER_PARTITION := false
-
 # f2fs utilities
 PRODUCT_PACKAGES += \
     sg_write_buffer \
