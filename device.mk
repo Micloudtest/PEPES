@@ -11,9 +11,14 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota.mk)
 # Enable updating of APEXes
 $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 
-# API
+# Dynamic Partitions
+PRODUCT_USE_DYNAMIC_PARTITIONS := true
+
+# VNDK
 PRODUCT_TARGET_VNDK_VERSION := 32
-PRODUCT_SHIPPING_API_LEVEL := 31
+
+# API
+PRODUCT_SHIPPING_API_LEVEL  := 31
 
 # A/B
 AB_OTA_POSTINSTALL_CONFIG += \
@@ -57,19 +62,10 @@ PRODUCT_PACKAGES += \
     android.hardware.fastboot@1.1-impl-mock \
     fastbootd
 
-# FUSE passthrough
-PRODUCT_SYSTEM_PROPERTIES += \
-    persist.sys.fuse.passthrough.enable=true
-
 # Init scripts
 PRODUCT_PACKAGES += \
     init.recovery.qcom.sh \
     init.recovery.qcom.rc
-
-# Soong namespaces
-PRODUCT_SOONG_NAMESPACES += \
-    $(LOCAL_PATH) \
-    hardware/qcom-caf/bootctrl
 
 # Update engine
 PRODUCT_PACKAGES += \
