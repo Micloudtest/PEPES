@@ -154,12 +154,6 @@ ifneq ($(OF_HIDE_NOTCH),1)
     TW_CUSTOM_BATTERY_POS := "790"
 endif
 
-# Display
-TARGET_SCREEN_DENSITY := 440
-TW_BRIGHTNESS_PATH := "/sys/class/leds/lcd-backlight/brightness"
-TW_MAX_BRIGHTNESS := 2047
-TW_DEFAULT_BRIGHTNESS := 500
-
 # Security patch level
 PLATFORM_VERSION := 14
 PLATFORM_VERSION_LAST_STABLE := $(PLATFORM_VERSION)
