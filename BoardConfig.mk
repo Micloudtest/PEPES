@@ -43,15 +43,9 @@ TARGET_PREBUILT_KERNEL        := $(PREBUILT_PATH)/kernel
 TARGET_PREBUILT_DTB           := $(PREBUILT_PATH)/dtb.img
 BOARD_PREBUILT_DTBOIMAGE      := $(PREBUILT_PATH)/dtbo.img
 BOARD_MKBOOTIMG_ARGS          += --header_version $(BOARD_BOOT_HEADER_VERSION)
-BOARD_MKBOOTIMG_ARGS          += --pagesize $(BOARD_KERNEL_PAGESIZE)
-
-# GSI && GKI
-BOARD_USES_GENERIC_KERNEL_IMAGE := true
-BOARD_MOVE_GSI_AVB_KEYS_TO_VENDOR_BOOT := true
-BOARD_EXCLUDE_KERNEL_FROM_RECOVERY_IMAGE := true
 
 # Despite being VA/B device, there is a dedicated recovery partition
-BOARD_USES_RECOVERY_AS_BOOT := false
+BOARD_USES_RECOVERY_AS_BOOT := true
 BOARD_MOVE_RECOVERY_RESOURCES_TO_VENDOR_BOOT := false
 
 # Use LZ4 Ramdisk compression instead of GZIP
