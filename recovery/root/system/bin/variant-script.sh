@@ -1,42 +1,60 @@
+
 #!/system/bin/sh
 # This script is needed to automatically set device props.
 
-load_spes()
-{
-    resetprop "ro.product.model" "2201117TG"
-    resetprop "ro.product.vendor.model" "2201117TG"
-    resetprop "ro.product.name" "spes"
-    resetprop "ro.build.product" "spes"
-    resetprop "ro.product.device" "spes"
-    resetprop "ro.product.system.device" "spes"
-    resetprop "ro.product.vendor.device" "spes"
-    resetprop "ro.vendor.product.device" "spes"
+LOG_PATH=/tmp/recovery.log
+
+setdevicename() {
+    resetprop "ro.product.name" "$1"
+    resetprop "ro.build.product" "$1"
+    resetprop "ro.vendor.product.device" "$1"
+    resetprop "ro.system.product.device" "$1"
+    resetprop "ro.system_ext.product.device" "$1"
+    resetprop "ro.odm.product.device" "$1"
+    resetprop "ro.product.device" "$1"
+    resetprop "ro.product.product.device" "$1"
+    resetprop "ro.product.bootimage.device" "$1"
+    resetprop "ro.product.odm.device" "$1"
+    resetprop "ro.product.system.device" "$1"
+    resetprop "ro.product.system_ext.device" "$1"
+    resetprop "ro.product.vendor.device" "$1"
+    resetprop "ro.product.board" "$1"
+}
+
+setdevicemodel() {
+    resetprop "ro.product.model" "$1"
+    resetprop "ro.product.vendor.model" "$1"
+    resetprop "ro.product.odm.model" "$1"
+    resetprop "ro.product.system.model" "$1"
+    resetprop "ro.product.system_ext.model" "$1"
+    resetprop "ro.product.product.model" "$1"
 }
 
 load_spesn()
 {
-    resetprop "ro.product.model" "2201117TY"
-    resetprop "ro.product.vendor.model" "2201117TY"
-    resetprop "ro.product.name" "spesn"
-    resetprop "ro.build.product" "spesn"
-    resetprop "ro.product.device" "spesn"
-    resetprop "ro.product.system.device" "spesn"
-    resetprop "ro.product.vendor.device" "spesn"
-    resetprop "ro.vendor.product.device" "spesn"
+    echo "I:Variant-Script: Loaded spesn variant" | tee -a $LOG_PATH
+    setdevicename "spesn"
+    setdevicemodel "Redmi Note 11 NFC"
 }
 
-variant=$(getprop ro.boot.hwc)
-echo $variant
+load_spes()
+{
+    echo "I:Variant-Script: Loaded spes variant" | tee -a $LOG_PATH
+    setdevicename "spes"
+    setdevicemodel "Redmi Note 11 4G"
+}
+
+variant=$(resetprop ro.boot.hwname)
 
 case $variant in
-    "GLOBAL")
-        load_spes
-        ;;
-    "EUROPE")
+    "spesn")
         load_spesn
         ;;
-    *)
+    "spes")
         load_spes
+        ;;
+    *)
+        load_spesn
         ;;
 esac
 
