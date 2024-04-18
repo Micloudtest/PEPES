@@ -74,11 +74,6 @@ PRODUCT_PACKAGES += \
     init.recovery.qcom.sh \
     init.recovery.qcom.rc
 
-# Soong namespaces
-PRODUCT_SOONG_NAMESPACES += \
-    $(LOCAL_PATH) \
-    hardware/qcom-caf/bootctrl
-
 # Update engine
 PRODUCT_PACKAGES += \
     update_engine \
@@ -101,7 +96,6 @@ ALLOW_MISSING_DEPENDENCIES := true
 TW_INCLUDE_CRYPTO := true
 TW_INCLUDE_CRYPTO_FBE := true
 TW_INCLUDE_FBE_METADATA_DECRYPT := true
-TW_FIX_DECRYPTION_ON_DATA_MEDIA := true
 BOARD_USES_QCOM_FBE_DECRYPTION := true
 
 # Security patch level
