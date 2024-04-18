@@ -74,7 +74,6 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
 	export FOX_RECOVERY_VENDOR_PARTITION="/dev/block/mapper/vendor"
 
  	# Other OrangeFox configs
-	export OF_NO_SPLASH_CHANGE=1
         export FOX_VIRTUAL_AB_DEVICE=1
         export OF_ADVANCED_SECURITY=1
 	export OF_ALLOW_DISABLE_NAVBAR=0    
